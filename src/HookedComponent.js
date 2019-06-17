@@ -12,20 +12,21 @@ const HookedComponent = () => {
 
   // for no real reason...
   useEffect(() => {
-    console.log(`updated counter to ${value}`);
+    console.log(`BAD: updated counter to ${value}`);
   }, [value]);
 
   const doCounter = () => {
     setValue(value + 1);
   };
 
-  const resizeCallbackHandler = resp => {
-    console.log(`handle callback from 3rd party: value is ${value}`);
+  const resizeCallbackHandler = () => {
+    console.log(`BAD: handle callback from 3rd party: value is ${value}`);
   };
 
   return (
     <>
-      <h2>{value}</h2>
+      <h2>Not working...</h2>
+      <h3>{value}</h3>
       <button type="button" onClick={doCounter}>
         Update Value
       </button>
